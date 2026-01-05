@@ -9,9 +9,7 @@ import (
 	"github.com/joho/godotenv"
 )
 func main()  {
-if err := godotenv.Load();
-err!=nil{
-	log.Println("env not found and not connected")
+
 }	
 	// Connect to PostgreSQL
 	if err := dbconnection.Connectiontopostgres();err != nil{
