@@ -6,7 +6,7 @@ import (
 	"log"
 
 "cronproject/maildata"
-	"github.com/joho/godotenv"
+	
 )
 func main()  {
 
