@@ -17,16 +17,16 @@ type SMTPConfig struct {
 
 // NewBrevoSMTPConfig initializes Brevo SMTP config from env
 func NewBrevoSMTPConfig() (*SMTPConfig, error) {
-	// server := os.Getenv("Smtpserver")
-	// port := os.Getenv("Smtpport")
-	// login := os.Getenv("Smtplogin")
-	// apiKey := os.Getenv("Smtpapi")
-	// from := os.Getenv("Smtpfrom")
-server := os.Getenv("SMTPSERVER")
-port := os.Getenv("SMTPPORT")
-login := os.Getenv("SMTPLOGIN")
-apiKey := os.Getenv("SMTPAPI")
-from := os.Getenv("SMTPFROM")
+	server := os.Getenv("Smtpserver")
+	port := os.Getenv("Smtpport")
+	login := os.Getenv("Smtplogin")
+	apiKey := os.Getenv("Smtpapi")
+	from := os.Getenv("Smtpfrom")
+// server := os.Getenv("SMTPSERVER")
+// port := os.Getenv("SMTPPORT")
+// login := os.Getenv("SMTPLOGIN")
+// apiKey := os.Getenv("SMTPAPI")
+// from := os.Getenv("SMTPFROM")
 
 	if server == "" || port == "" || login == "" || apiKey == "" || from == "" {
 		return nil, fmt.Errorf("missing Brevo SMTP environment variables")
