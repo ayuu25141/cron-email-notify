@@ -1,0 +1,32 @@
+name: Mail Cron Job
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # every day at 9 AM UTC
+  workflow_dispatch:       # allows manual trigger
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Go
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
+      # 3️⃣ Run your Go cron job
+      - name: Run Mail Cron
+        env:
+          Smtpport: ${{ secrets.Smtpport }}
+          Smtpserver: ${{ secrets.Smtpserver }}
+          Smtplogin: ${{ secrets.Smtplogin }}
+          Smtpapi: ${{ secrets.Smtpapi }}
+          Smtpfrom: ${{ secrets.Smtpfrom }}
+          Dburl: ${{ secrets.Dburl }}
+        run: go run main.go
